@@ -145,7 +145,7 @@
     function blogger(url) {
         // `url` is a blog ID
         if (is_number(url)) {
-            return (loc.protocol === 'file:' ? 'https:' : "") + '//www.blogger.com/feeds/' + url + '/pages/summary';
+            return (loc.protocol === 'file:' ? 'https:' : "") + '//jumprlink.blogspot.com/feeds/' + url + '/pages/summary';
         }
         // `url` is a blog URL
         return canon(url) + '/feeds/pages/summary';
