@@ -356,8 +356,7 @@ filteredEntries.forEach(function(entry) {
 
         previous.style.display = start > 1 ? "" : 'none';
      // next.style.display = chunk > entry_length ? 'none' : "";
-     // next.style.display = chunk > filteredEntries.length ? 'none' : "";
-        next.style.display = filteredEntries.length > chunk ? "" : 'none';
+        next.style.display = chunk > filteredEntries.length ? 'none' : "";
 
 
         insert(nav, previous);
@@ -511,7 +510,7 @@ filteredEntries.forEach(function(entry) {
                 throttle && win.clearTimeout(throttle);
                 throttle = win.setTimeout(function() {
                     search_submit.call(source);
-                }, is_number(live) ? +live : 500);
+                }, is_number(live) ? +live : 2);//500
             } else if (t.value === "") {
                 insert(bounds, div);
                 detach(container);
