@@ -354,9 +354,18 @@ filteredEntries.forEach(function(entry) {
 
         detach(loading);
 
-        previous.style.display = start > 1 ? "" : 'none';
+     // previous.style.display = start > 1 ? "" : 'none';
+        if (start > 1) {
+          previous.style.display = "";
+        } else {
+          previous.style.display = "none";
+        }
      // next.style.display = chunk > entry_length ? 'none' : "";
-        next.style.display = chunk > filteredEntries.length ? 'none' : "";
+        if (chunk > filteredEntries.length) {
+          next.style.display = 'none';
+        } else {
+          next.style.display = '';
+        }
 
 
         insert(nav, previous);
@@ -366,6 +375,11 @@ filteredEntries.forEach(function(entry) {
         insert(k, title);
         insert(k, ol);
         insert(k, nav);
+
+var ulist = document.querySelector('.js-search ul');
+for (let i = ulist.children.length; i >= 3; i--) {
+  ulist.removeChild(ulist.children[i]);
+}
 
         if (size) {
             var img = ol.getElementsByTagName('img'),
@@ -462,7 +476,7 @@ filteredEntries.forEach(function(entry) {
         load(blogger(url) + param(extend(settings.query, {
             'callback': '_' + fn,
             'max-results': '50',
-            'start-index': '1'//i
+            'start-index': i
         })), function() {
             reset_class(parent, name + '-loading');
             if (!is_set(caches[q])) {
