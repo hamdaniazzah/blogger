@@ -1,3 +1,6 @@
+
+// info feed https://kurteyki.com/belajar-kode-blogger/content/88
+
 /*! AJAX Search Widget for Blogger V2 <https://dte-project.github.io/blogger/search.html> */
 
 /* <https://github.com/taufik-nurrohman/query-string-parser> */
@@ -261,6 +264,8 @@
         q = new RegExp(q, 'i');
         return text.replace(q, '<mark>$&</mark>');
     }
+    
+    
 
     function get_css(prop) {
         return win.getComputedStyle(bounds).getPropertyValue(prop);
@@ -306,6 +311,14 @@
                 }) || {}).href;
                 str = "";
             if (!url) return;
+
+
+let regexPattern = query.replace(/[-[\]{}()*+?.,\\^$|#]/g, '\\$&');
+regexPattern = regexPattern.replace(/\s+/g, '\\s+');
+let tregex = new RegExp(regexPattern, 'i');
+if (tregex.test(current.title.$t)) {
+
+          
             if (size) {
                 var has_image = 'media$thumbnail' in current,
                     w, h, r;
@@ -332,6 +345,11 @@
                 str += '<p class="' + name + '-excerpt' + (has_excerpt ? "" : ' no-excerpt') + '">' + mark(summary.slice(0, excerpt)) + (has_excerpt > excerpt ? '&hellip;' : "") + '</p>';
             }
             return el('li', str);
+
+
+}// if match
+
+
         };
 
         ol.innerHTML = "";
@@ -373,7 +391,8 @@
                 'callback': '_' + fn + '_',
                 'max-results': 21,
                 'orderby': 'updated'
-            })) + '&q=' + encode(query));
+              }))
+            );
         }
 
         _hook(container, 'load', [$, query, start]);
@@ -445,7 +464,6 @@
         load(blogger(url) + param(extend(settings.query, {
             'callback': '_' + fn,
             'max-results': chunk,
-            'q': q,
             'start-index': i
         })), function() {
             reset_class(parent, name + '-loading');
