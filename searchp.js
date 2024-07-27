@@ -376,8 +376,12 @@ filteredEntries.forEach(function(entry) {
         insert(k, ol);
         insert(k, nav);
 
-var ulist = document.querySelector('.js-search ul');
-    for (let i = ulist.children.length - 1; i >= chunk; i--) {
+let ulist = document.querySelector('.js-search ul'),
+    delStart = chunk;
+  if (chunk === filteredEntries.length) {
+    delStart = chunk - 1;
+  }
+    for (let i = ulist.children.length - 1; i >= delStart; i--) {
       ulist.removeChild(ulist.children[i]);
     }
 
