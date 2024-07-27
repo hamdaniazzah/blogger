@@ -109,7 +109,7 @@
             excerpt: 0,
             image: 0,
             target: 0,
-            chunk: 50,
+            chunk: 20,
             text: {
                 title: 'Search results for query <em>&quot;%s%&quot;</em>',
                 loading: 'Searching&hellip;',
@@ -343,16 +343,36 @@ if (qPattern.test(current.title.$t)) {
             }
             return el('li', str);
 
+}// if qPattern
 
-}// if match
 
+        }; // func list
 
-        };
-
+/*
+// old
         ol.innerHTML = "";
         for (i = 0; i < entry_length; ++i) {
             insert(ol, list(entry[i]));
         }
+*/
+ol.innerHTML = "";
+(function(current) {
+  if (!current) return;
+  var tartitle = current.title.$t;
+
+let qPattern = query.replace(/[-[\]{}()*+?.,\\^$|#]/g, '\\$&');
+qPattern = qPattern.replace(/\s+/g, '\\s+');
+qPattern = new RegExp(qPattern, 'i');
+
+tartitle.forEach(tar => {
+  if (qPattern.test(tar)) {
+    insert(ol, list(tar));
+  }
+});
+
+
+})();
+// update
 
         detach(loading);
 
