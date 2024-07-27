@@ -462,7 +462,7 @@ filteredEntries.forEach(function(entry) {
         load(blogger(url) + param(extend(settings.query, {
             'callback': '_' + fn,
             'max-results': '50',
-            'start-index': i
+            'start-index': '1'//i
         })), function() {
             reset_class(parent, name + '-loading');
             if (!is_set(caches[q])) {
@@ -510,7 +510,7 @@ filteredEntries.forEach(function(entry) {
                 throttle && win.clearTimeout(throttle);
                 throttle = win.setTimeout(function() {
                     search_submit.call(source);
-                }, is_number(live) ? +live : 2);//500
+                }, is_number(live) ? +live : 500);
             } else if (t.value === "") {
                 insert(bounds, div);
                 detach(container);
