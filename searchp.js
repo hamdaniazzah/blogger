@@ -412,13 +412,16 @@ filteredEntries.forEach(function(entry) {
 
     };
 
+
     win['_' + fn + '_'] = function($) {
         $ = $.feed || {};
         var entry = $.entry || [];
         entry = entry[Math.floor(Math.random() * entry.length)];
         if (entry = list(entry)) {
             set_class(entry, 'ad');
+            /*
             insert(ol, entry, ol.firstChild);
+            */
         }
         _hook(entry, 'load.ad', [$]);
     };
