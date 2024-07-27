@@ -309,13 +309,6 @@
                 str = "";
             if (!url) return;
 
-/*
-let qPattern = query.replace(/[-[\]{}()*+?.,\\^$|#]/g, '\\$&');
-qPattern = qPattern.replace(/\s+/g, '\\s+');
-qPattern = new RegExp(qPattern, 'i');
-if (qPattern.test(current.title.$t)) {
-*/
-
           
             if (size) {
                 var has_image = 'media$thumbnail' in current,
@@ -344,19 +337,10 @@ if (qPattern.test(current.title.$t)) {
             }
             return el('li', str);
 
-//}// if qPattern
-
 
         }; // func list
 
-/*
-// old code
-        ol.innerHTML = "";
-        for (i = 0; i < entry_length; ++i) {
-            insert(ol, list(entry[i]));
-        }
-*/
-// new code
+
 var filteredEntries = entry.filter(function(currentEntry) {
 var qPattern = new RegExp(query.replace(/[-[\]{}()*+?.,\\^$|#]/g, '\\$&'), 'i');
 return qPattern.test(currentEntry.title.$t);
@@ -368,13 +352,13 @@ filteredEntries.forEach(function(entry) {
 });
 
 
-// new code
-
         detach(loading);
 
         previous.style.display = start > 1 ? "" : 'none';
      // next.style.display = chunk > entry_length ? 'none' : "";
-        next.style.display = chunk > filteredEntries.length ? 'none' : "";
+     // next.style.display = chunk > filteredEntries.length ? 'none' : "";
+        next.style.display = filteredEntries.length > chunk ? "" : 'none';
+
 
         insert(nav, previous);
         insert(nav, doc.createTextNode(' ')); // insert space
