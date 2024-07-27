@@ -356,22 +356,17 @@ if (qPattern.test(current.title.$t)) {
         }
 */
 // new code
+var filteredEntries = entry.filter(function(currentEntry) {
+var qPattern = new RegExp(query.replace(/[-[\]{}()*+?.,\\^$|#]/g, '\\$&'), 'i');
+return qPattern.test(currentEntry.title.$t);
+});
+
 ol.innerHTML = "";
-(function(current) {
-  if (!current) return;
-
-let qPattern = query.replace(/[-[\]{}()*+?.,\\^$|#]/g, '\\$&');
-qPattern = qPattern.replace(/\s+/g, '\\s+');
-qPattern = new RegExp(qPattern, 'i');
-
-current.title.$t.forEach(tartitle => { // Loop through all titles in the entry
-    if (qPattern.test(tartitle)) {
-      insert(ol, list(tartitle));
-    }
+filteredEntries.forEach(function(entry) {
+  insert(ol, list(entry));
 });
 
 
-})();
 // new code
 
         detach(loading);
