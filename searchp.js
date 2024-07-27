@@ -210,7 +210,7 @@
             'id': name + ':' + hash
         }),
         div = el('div'),
-        title = el('h3', "", {
+        title = el('p', "", {
             'class': name + '-title'
         }),
         ol = el('ol', "", {
@@ -310,10 +310,10 @@
             if (!url) return;
 
 
-let regexPattern = query.replace(/[-[\]{}()*+?.,\\^$|#]/g, '\\$&');
-regexPattern = regexPattern.replace(/\s+/g, '\\s+');
-let tregex = new RegExp(regexPattern, 'i');
-if (tregex.test(current.title.$t)) {
+let qPattern = query.replace(/[-[\]{}()*+?.,\\^$|#]/g, '\\$&');
+qPattern = qPattern.replace(/\s+/g, '\\s+');
+qPattern = new RegExp(qPattern, 'i');
+if (qPattern.test(current.title.$t)) {
 
           
             if (size) {
@@ -334,7 +334,7 @@ if (tregex.test(current.title.$t)) {
                 str += has_image ? '<img alt="" src="' + current.media$thumbnail.url.replace(/\/s\d+(\-c)?\//g, '/' + size + '/') + '" style="display:block;width:' + w + ';height:' + h + ';">' : '<span class="img" style="display:block;width:' + w + ';height:' + h + ';">';
                 str += '</p>';
             }
-            str += '<h4 class="' + name + '-title"><a href="' + url + '"' + (target ? ' target="' + target + '"' : "") + '>' + mark(current.title.$t) + '</a></h4>';
+            str += '<span class="' + name + '-title"><a href="' + url + '"' + (target ? ' target="' + target + '"' : "") + '>' + mark(current.title.$t) + '</a></span>';
             if (excerpt) {
                 var summary = current.summary.$t.replace(/<.*?>/g, "").replace(/[<>]/g, "").trim(),
                     has_excerpt = summary.length;
