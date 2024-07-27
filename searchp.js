@@ -111,12 +111,12 @@
             target: 0,
             chunk: 50,
             text: {
-                title: 'Search results for query &quot;<em>%s%</em>&quot;',
+                title: 'Search results for query <em>&quot;%s%&quot;</em>',
                 loading: 'Searching&hellip;',
                 previous: 'Previous',
                 next: 'Next',
-                empty: 'No results for query &quot;<em>%s%</em>&quot;.',
-                end: 'No more results for query &quot;<em>%s%</em>&quot;.'
+                empty: 'No results for query <em>&quot;%s%&quot;</em>.',
+                end: 'No more results for query <em>&quot;%s%&quot;</em>.'
             },
             query: {
                 'alt': 'json',
