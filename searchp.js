@@ -361,7 +361,7 @@ filteredEntries.forEach(function(entry) {
           previous.style.display = "none";
         }
      // next.style.display = chunk > entry_length ? 'none' : "";
-        if (chunk > filteredEntries.length) {
+        if (chunk > filteredEntries.length || chunk === filteredEntries.length) {
           next.style.display = 'none';
         } else {
           next.style.display = '';
