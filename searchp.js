@@ -368,7 +368,7 @@ current.title.$t.forEach(tartitle => { // Loop through all titles in the entry
     if (qPattern.test(tartitle)) {
       insert(ol, list(tartitle));
     }
-}
+});
 
 
 })();
