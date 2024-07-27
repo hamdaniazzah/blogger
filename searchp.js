@@ -361,7 +361,7 @@ filteredEntries.forEach(function(entry) {
           previous.style.display = "none";
         }
      // next.style.display = chunk > entry_length ? 'none' : "";
-        if (chunk > filteredEntries.length || chunk === filteredEntries.length) {
+        if (chunk > filteredEntries.length - 1 || chunk === filteredEntries.length - 1) {
           next.style.display = 'none';
         } else {
           next.style.display = '';
@@ -378,9 +378,7 @@ filteredEntries.forEach(function(entry) {
 
 let ulist = document.querySelector('.js-search ul'),
     delStart = chunk;
-  if (chunk === filteredEntries.length - 1) {
-    delStart = chunk + 1;
-  }
+
     for (let i = ulist.children.length - 1; i >= delStart; i--) {
       ulist.removeChild(ulist.children[i]);
     }
