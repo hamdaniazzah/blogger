@@ -309,11 +309,12 @@
                 str = "";
             if (!url) return;
 
-
+/*
 let qPattern = query.replace(/[-[\]{}()*+?.,\\^$|#]/g, '\\$&');
 qPattern = qPattern.replace(/\s+/g, '\\s+');
 qPattern = new RegExp(qPattern, 'i');
 if (qPattern.test(current.title.$t)) {
+*/
 
           
             if (size) {
@@ -343,7 +344,7 @@ if (qPattern.test(current.title.$t)) {
             }
             return el('li', str);
 
-}// if qPattern
+//}// if qPattern
 
 
         }; // func list
@@ -419,9 +420,7 @@ filteredEntries.forEach(function(entry) {
         entry = entry[Math.floor(Math.random() * entry.length)];
         if (entry = list(entry)) {
             set_class(entry, 'ad');
-            /*
             insert(ol, entry, ol.firstChild);
-            */
         }
         _hook(entry, 'load.ad', [$]);
     };
@@ -479,7 +478,7 @@ filteredEntries.forEach(function(entry) {
         set_class(parent, name + '-loading');
         load(blogger(url) + param(extend(settings.query, {
             'callback': '_' + fn,
-            'max-results': '100',
+            'max-results': '50',
             'start-index': i
         })), function() {
             reset_class(parent, name + '-loading');
