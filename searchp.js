@@ -349,30 +349,30 @@ if (qPattern.test(current.title.$t)) {
         }; // func list
 
 /*
-// old
+// old code
         ol.innerHTML = "";
         for (i = 0; i < entry_length; ++i) {
             insert(ol, list(entry[i]));
         }
 */
+// new code
 ol.innerHTML = "";
 (function(current) {
   if (!current) return;
-  var tartitle = current.title.$t;
 
 let qPattern = query.replace(/[-[\]{}()*+?.,\\^$|#]/g, '\\$&');
 qPattern = qPattern.replace(/\s+/g, '\\s+');
 qPattern = new RegExp(qPattern, 'i');
 
-tartitle.forEach(tar => {
-  if (qPattern.test(tar)) {
-    insert(ol, list(tar));
-  }
-});
+current.title.$t.forEach(tartitle => { // Loop through all titles in the entry
+    if (qPattern.test(tartitle)) {
+      insert(ol, list(tartitle));
+    }
+}
 
 
 })();
-// update
+// new code
 
         detach(loading);
 
