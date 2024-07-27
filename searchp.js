@@ -377,9 +377,9 @@ filteredEntries.forEach(function(entry) {
         insert(k, nav);
 
 var ulist = document.querySelector('.js-search ul');
-for (let i = ulist.children.length; i >= 3; i--) {
-  ulist.removeChild(ulist.children[i]);
-}
+    for (let i = ulist.children.length - 1; i >= 2; i--) {
+      ulist.removeChild(ulist.children[i]);
+    }
 
         if (size) {
             var img = ol.getElementsByTagName('img'),
