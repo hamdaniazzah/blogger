@@ -1,6 +1,3 @@
-
-// info feed https://kurteyki.com/belajar-kode-blogger/content/88
-
 /*! AJAX Search Widget for Blogger V2 <https://dte-project.github.io/blogger/search.html> */
 
 /* <https://github.com/taufik-nurrohman/query-string-parser> */
@@ -104,7 +101,7 @@
             url: loc.protocol + '//' + loc.host,
             // id: 0,
             name: 'js-search',
-            css: 1,
+            css: 0,
             ad: true,
             live: true,
             source: 'form[action$="/search"]',
@@ -148,7 +145,7 @@
     function blogger(url) {
         // `url` is a blog ID
         if (is_number(url)) {
-            return (loc.protocol === 'file:' ? 'https:' : "") + '//jumprlink.blogspot.com/feeds/' + url + '/pages/summary';
+            return (loc.protocol === 'file:' ? 'https:' : "") + '//www.blogger.com/feeds/' + url + '/pages/summary';
         }
         // `url` is a blog URL
         return canon(url) + '/feeds/pages/summary';
@@ -463,7 +460,7 @@ if (tregex.test(current.title.$t)) {
         set_class(parent, name + '-loading');
         load(blogger(url) + param(extend(settings.query, {
             'callback': '_' + fn,
-            'max-results': chunk,
+            'max-results': '100',
             'start-index': i
         })), function() {
             reset_class(parent, name + '-loading');
