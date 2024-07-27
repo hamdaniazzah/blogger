@@ -372,7 +372,8 @@ filteredEntries.forEach(function(entry) {
         detach(loading);
 
         previous.style.display = start > 1 ? "" : 'none';
-        next.style.display = chunk > entry_length ? 'none' : "";
+     // next.style.display = chunk > entry_length ? 'none' : "";
+        next.style.display = chunk > filteredEntries.length ? 'none' : "";
 
         insert(nav, previous);
         insert(nav, doc.createTextNode(' ')); // insert space
