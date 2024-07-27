@@ -111,12 +111,12 @@
             target: 0,
             chunk: 50,
             text: {
-                title: 'Search results for query <em>%s%</em>',
+                title: 'Search results for query &quot;<em>%s%</em>&quot;',
                 loading: 'Searching&hellip;',
                 previous: 'Previous',
                 next: 'Next',
-                empty: 'No results for query <em>%s%</em>.',
-                end: 'No more results for query <em>%s%</em>.'
+                empty: 'No results for query &quot;<em>%s%</em>&quot;.',
+                end: 'No more results for query &quot;<em>%s%</em>&quot;.'
             },
             query: {
                 'alt': 'json',
@@ -213,7 +213,7 @@
         title = el('p', "", {
             'class': name + '-title'
         }),
-        ol = el('ol', "", {
+        ol = el('ul', "", {
             'class': name + '-results',
             'id': name + '-results:' + hash,
             'start': start
