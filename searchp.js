@@ -483,14 +483,10 @@ if(ulist.children.length > chunk){
 
 let idresult = document.querySelector('#searchresult');
 
-if(c[0] == chunk && c[0] == idresult.dataset.sLength) {
-  // cache li = 2
+if(idresult.dataset.sLength == chunk) {
+  // sLength = 2
   next.style.display = 'none';
 }
-
-idresult.dataset.sLength = c[0];
-
-idresult.innerText = c[1];
 
             ol.innerHTML = c[1];
             insert(k, ol);
