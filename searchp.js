@@ -382,24 +382,27 @@ let ulist = document.querySelector('.js-search ul'),
 
 if(ulist.children.length < chunk) {
   // li < 2
-  alert('li < chunk');
+  alert('li < 2');
   unext.style.display = 'none';
 }
 if(ulist.children.length == chunk){
   // li = 2
-  alert('li = chunk');
+  alert('li = 2');
   unext.style.display = 'none';
 }
 
 if(ulist.children.length > chunk){
   // li > 2
+  alert('li > 2');
   for (let i = ulist.children.length - 1; i >= chunk; i--) {
     ulist.removeChild(ulist.children[i]);
   }
   if(filteredEntries.length < chunk || filteredEntries.length == chunk){
     // fentri < 2 or = 2
+    alert('fentri < 2 or = 2');
     unext.style.display = 'none';
   } else {
+    alert('fentri else');
     unext.style.display = '';
   }
 }
