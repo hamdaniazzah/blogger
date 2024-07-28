@@ -374,7 +374,6 @@ filteredEntries.forEach(function(entry) {
         var k = container.children[0];
         insert(k, title);
         insert(k, ol);
-        insert(k, nav);
 
 let ulist = document.querySelector('.js-search ul'),
     unext = document.querySelector('.js-search-next');
@@ -383,12 +382,12 @@ let ulist = document.querySelector('.js-search ul'),
 if(ulist.children.length < chunk) {
   // li < 2
   alert('li < 2');
-  unext.style.display = 'none!important';
+  next.style.display = 'none';
 }
-if(ulist.children.length == chunk){
+if(ulist.children.length == chunk && ulist.children.length == filteredEntries.length){
   // li = 2
   alert('li = 2');
-  unext.style.display = 'none!important';
+  next.style.display = 'none';
 }
 
 if(ulist.children.length > chunk){
@@ -400,13 +399,14 @@ if(ulist.children.length > chunk){
   if(filteredEntries.length < chunk || filteredEntries.length == chunk){
     // fentri < 2 or = 2
     alert('fentri < 2 or = 2');
-    unext.style.display = 'none!important';
+    next.style.display = 'none';
   } else {
     alert('fentri else');
-    unext.style.display = 'block!important';
+    next.style.display = '';
   }
 }
 
+        insert(k, nav);
 
         if (size) {
             var img = ol.getElementsByTagName('img'),
