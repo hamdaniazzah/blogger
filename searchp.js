@@ -519,9 +519,7 @@ if(ol.dataset.fLength == chunk){
             var c = ol.innerHTML;
 
 let idresult = document.querySelector('#searchresult');
-if(!ol.hasAttribute('data-f-length')){
   ol.dataset.fLength = idresult.dataset.sLength;
-}
 
             caches[q][i] = [ol.children.length, c];
             
