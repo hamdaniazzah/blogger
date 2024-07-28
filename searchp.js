@@ -379,21 +379,29 @@ filteredEntries.forEach(function(entry) {
 let ulist = document.querySelector('.js-search ul'),
     unext = document.querySelector('.js-search .js-search-next');
 
-alert('ulist length:'+ulist.children.length);
-if(chunk > ulist.children.length) {
-  // 2 > li
+
+if(ulist.children.length < chunk) {
+  // li < 2
   unext.style.display = 'none';
-} else if(ulist.children.length === chunk){
+}
+if(ulist.children.length == chunk){
   // li = 2
   unext.style.display = 'none';
-} else if(ulist.children.length > chunk){
+}
+
+if(ulist.children.length > chunk){
   // li > 2
   for (let i = ulist.children.length - 1; i >= chunk; i--) {
     ulist.removeChild(ulist.children[i]);
   }
-} else {
-  unext.style.display = '';
+  if(filteredEntries.length < chunk || filteredEntries.length == chunk){
+    // fentri < 2 or = 2
+    unext.style.display = 'none';
+  } else {
+    unext.style.display = '';
+  }
 }
+
 
         if (size) {
             var img = ol.getElementsByTagName('img'),
