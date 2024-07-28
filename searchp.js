@@ -485,7 +485,7 @@ if(ulist.children.length > chunk){
 
 //
 let ulist = document.querySelector('.js-search ul'),
-    filteredLength = ulist.filteredLength;
+    filteredLength = ulist.dataset.filteredLength;
 if(c[0] == chunk && c[0] == filteredLength) {
   // cache li = 2
   alert('cache li = 2 && = filtered');
