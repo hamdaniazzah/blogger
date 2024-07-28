@@ -361,7 +361,7 @@ filteredEntries.forEach(function(entry) {
           previous.style.display = "none";
         }
      // next.style.display = chunk > entry_length ? 'none' : "";
-        if (chunk > filteredEntries.length - 1 || chunk === filteredEntries.length - 1) {
+        if (chunk > filteredEntries.length - 1) {
           next.style.display = 'none';
         } else {
           next.style.display = '';
@@ -379,7 +379,7 @@ filteredEntries.forEach(function(entry) {
 let ulist = document.querySelector('.js-search ul'),
     unav = document.querySelector('.js-search nav');
 if(ulist.children.length === chunk){
-  unav.style.display = 'none';
+  next.style.display = 'none';
 }
 if(ulist.children.length > chunk){
   for (let i = ulist.children.length - 1; i >= chunk; i--) {
