@@ -480,16 +480,21 @@ if(ulist.children.length > chunk){
             previous.style.display = start > 1 ? "" : 'none';
             next.style.display = chunk > c[0] ? 'none' : "";
 
+            ol.innerHTML = c[1];
+            insert(k, ol);
+
 
 let idresult = document.querySelector('#searchresult');
 
-if(idresult.dataset.sLength == chunk) {
-  // sLength = 2
+if(!ol.hasAttribute('data-f-length')){
+  ol.dataset.fLength = idresult.dataset.sLength;
+}
+if(ol.dataset.fLength == chunk) {
   next.style.display = 'none';
 }
 
-            ol.innerHTML = c[1];
-            insert(k, ol);
+// if ol idlength == chunk
+
         } else {
             k.innerHTML = '<p class="' + name + '-results-' + p + '">' + text[p].replace('%s%', ent(query)) + '</p>';
             next.style.display = 'none';
