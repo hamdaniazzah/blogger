@@ -484,12 +484,7 @@ if(ulist.children.length > chunk){
             insert(k, ol);
 
 
-let idresult = document.querySelector('#searchresult');
-
-if(!ol.hasAttribute('data-f-length')){
-  ol.dataset.fLength = idresult.dataset.sLength;
-}
-if(ol.dataset.fLength == chunk) {
+if(ol.dataset.fLength == chunk){
   next.style.display = 'none';
 }
 
@@ -522,6 +517,12 @@ if(ol.dataset.fLength == chunk) {
                 caches[q] = {};
             }
             var c = ol.innerHTML;
+
+let idresult = document.querySelector('#searchresult');
+if(!ol.hasAttribute('data-f-length')){
+  ol.dataset.fLength = idresult.dataset.sLength;
+}
+
             caches[q][i] = [ol.children.length, c];
             
             search_cache(q, i);
