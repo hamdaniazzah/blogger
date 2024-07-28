@@ -361,12 +361,29 @@ filteredEntries.forEach(function(entry) {
           previous.style.display = "none";
         }
      // next.style.display = chunk > entry_length ? 'none' : "";
-       if (chunk >= filteredEntries.length) {
-          next.style.display = 'none';
-        } else {
-          next.style.display = '';
-        }
 
+if(ol.children.length <= chunk) {
+  // li <= chunk
+  next.style.display = 'none';
+}
+
+if(ol.children.length == filteredEntries.length){
+  // li = filtered
+  next.style.display = 'none';
+}
+
+if(ol.children.length > chunk){
+  // li > chunk
+  for (let i = ol.children.length - 1; i >= chunk; i--) {
+    ol.removeChild(ol.children[i]);
+  }
+  if(filteredEntries.length <= chunk){
+    // fentri <= chunk
+    next.style.display = 'none';
+  } else {
+    next.style.display = '';
+  }
+}
 
         insert(nav, previous);
         insert(nav, doc.createTextNode(' ')); // insert space
@@ -374,35 +391,6 @@ filteredEntries.forEach(function(entry) {
         var k = container.children[0];
         insert(k, title);
         insert(k, ol);
-
-let ulist = document.querySelector('.js-search ul'),
-    idresult = document.querySelector('#searchresult');
-
-idresult.dataset.sLength = filteredEntries.length;
-
-
-if(ulist.children.length < chunk) {
-  // li < 2
-  next.style.display = 'none';
-}
-if(ulist.children.length == chunk && ulist.children.length == filteredEntries.length){
-  // li = 2
-  next.style.display = 'none';
-}
-
-if(ulist.children.length > chunk){
-  // li > 2
-  for (let i = ulist.children.length - 1; i >= chunk; i--) {
-    ulist.removeChild(ulist.children[i]);
-  }
-  if(filteredEntries.length < chunk || filteredEntries.length == chunk){
-    // fentri < 2 or = 2
-    next.style.display = 'none';
-  } else {
-    next.style.display = '';
-  }
-}
-
         insert(k, nav);
 
         if (size) {
