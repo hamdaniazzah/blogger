@@ -378,14 +378,13 @@ filteredEntries.forEach(function(entry) {
 
 let ulist = document.querySelector('.js-search ul'),
     unav = document.querySelector('.js-search nav');
-if(ulist.children.length === filteredEntries.length){
+if(ulist.children.length === chunk){
   unav.style.display = 'none';
 }
 if(ulist.children.length > filteredEntries.length){
   for (let i = ulist.children.length - 1; i >= chunk; i--) {
     ulist.removeChild(ulist.children[i]);
   }
-  unav.style.display = 'none';
 }
 
         if (size) {
