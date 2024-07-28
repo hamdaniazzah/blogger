@@ -375,8 +375,7 @@ filteredEntries.forEach(function(entry) {
         insert(k, title);
         insert(k, ol);
 
-let ulist = document.querySelector('.js-search ul'),
-    unext = document.querySelector('.js-search-next');
+let ulist = document.querySelector('.js-search ul');
 
 
 if(ulist.children.length < chunk) {
@@ -480,7 +479,16 @@ if(ulist.children.length > chunk){
         insert(k, title);
         if (c[0]) {
             previous.style.display = start > 1 ? "" : 'none';
-            next.style.display = chunk > c[0] ? 'none' : "";
+          next.style.display = chunk > c[0] ? 'none' : "";
+
+//
+if(c[0] == chunk) {
+  // cache li = 2
+  alert('cache li = 2');
+  next.style.display = 'none';
+}
+//
+
             ol.innerHTML = c[1];
             insert(k, ol);
         } else {
