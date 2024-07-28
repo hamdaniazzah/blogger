@@ -382,10 +382,12 @@ let ulist = document.querySelector('.js-search ul'),
 
 if(ulist.children.length < chunk) {
   // li < 2
+  alert('li < chunk');
   unext.style.display = 'none';
 }
 if(ulist.children.length == chunk){
   // li = 2
+  alert('li = chunk');
   unext.style.display = 'none';
 }
 
