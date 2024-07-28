@@ -374,20 +374,19 @@ filteredEntries.forEach(function(entry) {
         var k = container.children[0];
         insert(k, title);
         insert(k, ol);
+        insert(k, nav);
 
-let ulist = document.querySelector('.js-search ul');
-alert(filteredEntries.length);
+let ulist = document.querySelector('.js-search ul'),
+    unav = document.querySelector('.js-search nav');
 if(ulist.children.length > filteredEntries.length){
   for (let i = ulist.children.length - 1; i >= chunk; i--) {
     ulist.removeChild(ulist.children[i]);
   }
-  next.style.display = 'none';
+  unav.remove();
 }
 if(ulist.children.length === filteredEntries.length){
-  next.style.display = 'none';
+  unav.remove();
 }
-
-        insert(k, nav);
 
         if (size) {
             var img = ol.getElementsByTagName('img'),
