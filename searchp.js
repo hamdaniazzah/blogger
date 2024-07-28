@@ -474,9 +474,6 @@ if(ulist.children.length > chunk){
         }
     }
 
-//
-let ulist = document.querySelector('.js-search ul');
-//
 
     function search_cache(q, i) {
         var c = caches[q][i],
@@ -487,7 +484,9 @@ let ulist = document.querySelector('.js-search ul');
             previous.style.display = start > 1 ? "" : 'none';
             next.style.display = chunk > c[0] ? 'none' : "";
 
-//
+/*
+let ulist = document.querySelector('.js-search ul');
+
 if(c[0] == chunk && c[0] == ulist.dataset.filteredLength) {
   // cache li = 2
   alert('cache li = 2 && = filtered');
@@ -495,7 +494,7 @@ if(c[0] == chunk && c[0] == ulist.dataset.filteredLength) {
 }
 
 ulist.dataset.filteredLength = c[0];
-//
+*/
 
             ol.innerHTML = c[1];
             insert(k, ol);
