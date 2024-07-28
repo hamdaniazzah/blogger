@@ -222,15 +222,15 @@
             'class': name + '-pager',
             'id': name + '-pager:' + hash
         }),
-        previous = el('a', text.previous, {
-            'class': name + '-previous',
-            'href': "",
-            'rel': 'prev'
+        previous = el('span', text.previous, {
+            'class': name + '-previous'//,
+         // 'href': "",
+         // 'rel': 'prev'
         }),
-        next = el('a', text.next, {
-            'class': name + '-next',
-            'href': "",
-            'rel': 'next'
+        next = el('span', text.next, {
+            'class': name + '-next'//,
+         // 'href': "",
+         //  'rel': 'next'
         }),
         loading = el('p', text.loading, {
             'class': name + '-loading'
@@ -481,7 +481,7 @@ if(ulist.children.length > chunk){
         insert(k, title);
         if (c[0]) {
             previous.style.display = start > 1 ? "" : 'none';
-          next.style.display = chunk > c[0] ? 'none' : "";
+            next.style.display = chunk > c[0] ? 'none' : "";
 
 //
 let ulist = document.querySelector('.js-search ul'),
