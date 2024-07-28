@@ -383,12 +383,12 @@ let ulist = document.querySelector('.js-search ul'),
 if(ulist.children.length < chunk) {
   // li < 2
   alert('li < 2');
-  unext.style.display = 'none';
+  unext.style.display = 'none!important';
 }
 if(ulist.children.length == chunk){
   // li = 2
   alert('li = 2');
-  unext.style.display = 'none';
+  unext.style.display = 'none!important';
 }
 
 if(ulist.children.length > chunk){
@@ -400,10 +400,10 @@ if(ulist.children.length > chunk){
   if(filteredEntries.length < chunk || filteredEntries.length == chunk){
     // fentri < 2 or = 2
     alert('fentri < 2 or = 2');
-    unext.style.display = 'none';
+    unext.style.display = 'none!important';
   } else {
     alert('fentri else');
-    unext.style.display = '';
+    unext.style.display = 'block!important';
   }
 }
 
