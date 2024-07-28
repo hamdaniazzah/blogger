@@ -381,7 +381,7 @@ let ulist = document.querySelector('.js-search ul'),
 if(ulist.children.length === chunk){
   unav.style.display = 'none';
 }
-if(ulist.children.length > filteredEntries.length){
+if(ulist.children.length > chunk){
   for (let i = ulist.children.length - 1; i >= chunk; i--) {
     ulist.removeChild(ulist.children[i]);
   }
