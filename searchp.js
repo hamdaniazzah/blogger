@@ -383,27 +383,22 @@ idresult.dataset.sLength = filteredEntries.length;
 
 if(ulist.children.length < chunk) {
   // li < 2
-  alert('li < 2');
   next.style.display = 'none';
 }
 if(ulist.children.length == chunk && ulist.children.length == filteredEntries.length){
   // li = 2
-  alert('li = 2');
   next.style.display = 'none';
 }
 
 if(ulist.children.length > chunk){
   // li > 2
-  alert('li > 2');
   for (let i = ulist.children.length - 1; i >= chunk; i--) {
     ulist.removeChild(ulist.children[i]);
   }
   if(filteredEntries.length < chunk || filteredEntries.length == chunk){
     // fentri < 2 or = 2
-    alert('fentri < 2 or = 2');
     next.style.display = 'none';
   } else {
-    alert('fentri else');
     next.style.display = '';
   }
 }
@@ -490,13 +485,12 @@ let idresult = document.querySelector('#searchresult');
 
 if(c[0] == chunk && c[0] == idresult.dataset.sLength) {
   // cache li = 2
-  alert('cache li = 2 && = sLength');
   next.style.display = 'none';
 }
 
 idresult.dataset.sLength = c[0];
 
-// next.dataset.red='true';
+idresult.innerText = c[1];
 
             ol.innerHTML = c[1];
             insert(k, ol);
