@@ -377,7 +377,7 @@ filteredEntries.forEach(function(entry) {
         insert(k, nav);
 
 let ulist = document.querySelector('.js-search ul'),
-    unext = document.querySelector('.js-search .js-search-next');
+    unext = document.querySelector('.js-search-next');
 
 
 if(ulist.children.length < chunk) {
