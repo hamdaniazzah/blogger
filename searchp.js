@@ -377,6 +377,8 @@ filteredEntries.forEach(function(entry) {
 
 let ulist = document.querySelector('.js-search ul');
 
+ulist.dataset.filteredLength = filteredEntries.length;
+
 
 if(ulist.children.length < chunk) {
   // li < 2
@@ -482,9 +484,11 @@ if(ulist.children.length > chunk){
           next.style.display = chunk > c[0] ? 'none' : "";
 
 //
-if(c[0] == chunk) {
+let ulist = document.querySelector('.js-search ul'),
+    filteredLength = ulist.filteredLength;
+if(c[0] == chunk && c[0] == filteredLength) {
   // cache li = 2
-  alert('cache li = 2');
+  alert('cache li = 2 && = filtered');
   next.style.display = 'none';
 }
 //
