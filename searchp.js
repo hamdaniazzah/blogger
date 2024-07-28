@@ -361,11 +361,11 @@ filteredEntries.forEach(function(entry) {
           previous.style.display = "none";
         }
      // next.style.display = chunk > entry_length ? 'none' : "";
-     /* if (chunk > filteredEntries.length - 1) {
+       if (chunk >= filteredEntries.length) {
           next.style.display = 'none';
         } else {
           next.style.display = '';
-        } */
+        }
 
 
         insert(nav, previous);
@@ -484,11 +484,12 @@ if(ulist.children.length > chunk){
             insert(k, ol);
 
 
-if(ol.dataset.fLength == chunk){
+/*
+if(c[0] == chunk){
   next.style.display = 'none';
 }
+*/
 
-// if ol idlength == chunk
 
         } else {
             k.innerHTML = '<p class="' + name + '-results-' + p + '">' + text[p].replace('%s%', ent(query)) + '</p>';
@@ -517,10 +518,7 @@ if(ol.dataset.fLength == chunk){
                 caches[q] = {};
             }
             var c = ol.innerHTML;
-
-let idresult = document.querySelector('#searchresult');
-  ol.dataset.fLength = idresult.dataset.sLength;
-
+            
             caches[q][i] = [ol.children.length, c];
             
             search_cache(q, i);
