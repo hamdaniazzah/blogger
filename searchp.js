@@ -376,6 +376,7 @@ filteredEntries.forEach(function(entry) {
         insert(k, ol);
 
 let ulist = document.querySelector('.js-search ul');
+alert(filteredEntries.length);
 if(ulist.children.length > filteredEntries.length){
   for (let i = ulist.children.length - 1; i >= chunk; i--) {
     ulist.removeChild(ulist.children[i]);
